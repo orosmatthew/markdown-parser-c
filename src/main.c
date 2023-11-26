@@ -161,6 +161,7 @@ int main()
     FILE* in_file = fopen("../test.md", "r");
     if (in_file == NULL) {
         perror("Error opening file");
+        return EXIT_FAILURE;
     }
 
     const MdRegexes regexes = md_regexes_create();
@@ -178,6 +179,7 @@ int main()
     FILE* out_file = fopen("../test.html", "w");
     if (out_file == NULL) {
         perror("Error creating file");
+        return EXIT_FAILURE;
     }
     write_md_to_html(out_file, md_list);
     fclose(out_file);
